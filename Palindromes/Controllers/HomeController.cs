@@ -9,9 +9,11 @@ namespace Palindromes.Controllers
     public ActionResult StartPage() { return View(); }
 
     [Route("/result")]
-    public ActionResult Result() 
+    public ActionResult Result(string userInput) 
     { 
-      return View(); 
+      PalindromesChecker palindromesChecker = new PalindromesChecker();
+      palindromesChecker.UserInput = userInput;
+      return View(palindromesChecker); 
     }
   }
 }
